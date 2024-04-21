@@ -390,7 +390,6 @@ h3.my-profession
 .about .about-content .about-text h3
 {
     font-size: 24px;
-    margin-bottom: 15px;
     font-weight: 700;
     color: var(--text-black-900);
 }
@@ -430,10 +429,11 @@ h3.my-profession
 }
 .about .about-content .personal-info .info p
  {
-     font-weight: 600;
+     /*font-weight: 400;*/
      padding: 10px 0;
      font-size: 16px;
-     color: var(--text-black-900);
+     line-height: 25px;
+     color: var(--text-black-700);
      border-bottom: 1px solid var(--bg-black-50);
  }
 .about .about-content .personal-info .info-item p span
@@ -592,8 +592,8 @@ h3.my-profession
 .service .service-item
 {
     margin-bottom: 30px;
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
+    flex: 0 0 50%;
+    max-width: 50%;
 }
 .service .service-item .service-item-inner
 {
@@ -625,6 +625,14 @@ h3.my-profession
     color: var(--skin-color);
     transition: all 0.3s ease;
 }
+.service .service-item .service-item-inner .icon .svg{
+ 
+    fill: var(--skin-color);
+    transition: all 0.3s ease;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+}
 .service .service-item .service-item-inner:hover .icon
 {
     background: var(--skin-color);
@@ -633,6 +641,11 @@ h3.my-profession
 {
     font-size: 25px;
     color: #ffffff;
+}
+.service .service-item .service-item-inner:hover .icon .svg
+{
+    font-size: 25px;
+    fill: #ffffff;
 }
 .service .service-item .service-item-inner h4
 {
@@ -660,6 +673,11 @@ h3.my-profession
     margin-bottom: 40px;
 }
 .portfolio .portfolio-heading h2
+{
+    color: var(--text-black-900);
+    font-weight: 500;
+}
+.portfolio .portfolio-item-inner .title h2
 {
     color: var(--text-black-900);
     font-weight: 500;
@@ -699,10 +717,11 @@ h3.my-profession
 }
 .contact .contact-info-item
 {
-    flex: 0 0 25%;
-    max-width: 25%;
+    flex: 0 0 50%;
+    max-width: 50%;
     text-align: center;
     margin-bottom: 60px;
+    align-content: center;
 }
 .contact .contact-info-item .icon
 {
