@@ -1,6 +1,6 @@
 /* ============================== typing animation ============================ */
 var typed = new Typed(".typing",{
-    strings:["","Game Developer","XR Developer"],
+    strings:["","Game Developer","XR Developer", "Software engineer"],
     typeSpeed:100,
     BackSpeed:60,
     loop:true
@@ -66,7 +66,15 @@ const nav = document.querySelector(".nav"),
               }
           }
       }
-      document.querySelector(".hire-me").addEventListener("click", function()
+// document.querySelectorAll('.portfolio-item-inner').forEach(item => {
+//     item.addEventListener('click', event => {
+//         event.preventDefault();
+//         // Add your custom click functionality here
+//         console.log('Portfolio item clicked');
+//     });
+// });
+
+document.querySelector(".hire-me").addEventListener("click", function()
       {
           const sectionIndex = this.getAttribute("data-section-index");
           //console.log(sectionIndex);
