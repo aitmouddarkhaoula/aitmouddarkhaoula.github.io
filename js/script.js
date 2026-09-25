@@ -98,3 +98,77 @@ document.querySelector(".hire-me").addEventListener("click", function()
                     allSection[i].classList.toggle("open");
                 }
             }
+
+           
+            
+            
+            /* ============================== Section Scroll ============================ */
+
+let isScrolling = false;
+
+document.addEventListener("wheel", function (event) {
+
+    if (isScrolling) return;
+
+    // Don't interfere with horizontal scrolling
+    if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+
+    const activeSection = document.querySelector(".section.active");
+
+    if (!activeSection) return;
+
+    // Check if the current section itself has scrollable content
+    const canScrollDown =
+        activeSection.scrollTop + activeSection.clientHeight <
+        activeSection.scrollHeight - 5;
+
+    const canScrollUp = activeSection.scrollTop > 5;
+
+    /*
+     * If the section has internal content to scroll,
+     * allow normal scrolling first.
+     */
+    if (event.deltaY > 0 && canScrollDown) {
+        return;
+    }
+
+    if (event.deltaY < 0 && canScrollUp) {
+        return;
+    }
+
+    const currentIndex = Array.from(allSection).indexOf(activeSection);
+
+    let nextIndex = currentIndex;
+
+    // Scroll down
+    if (event.deltaY > 0 && currentIndex < totalSection - 1) {
+        nextIndex++;
+    }
+
+    // Scroll up
+    else if (event.deltaY < 0 && currentIndex > 0) {
+        nextIndex--;
+    }
+
+    // Nothing to do
+    if (nextIndex === currentIndex) return;
+
+    const targetSection = allSection[nextIndex];
+
+    const targetLink = nav.querySelector(
+        `a[href="#${targetSection.id}"]`
+    );
+
+    if (!targetLink) return;
+
+    // Use your existing navigation system
+    targetLink.click();
+
+    // Prevent rapid section switching
+    isScrolling = true;
+
+    setTimeout(() => {
+        isScrolling = false;
+    }, 700);
+
+}, { passive: true });
